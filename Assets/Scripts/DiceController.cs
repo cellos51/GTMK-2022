@@ -86,11 +86,14 @@ public class DiceController : MonoBehaviour
     {
         float currentMovementTime = 0f;//The amount of time that has passed
         bool playSound = false;
+        float oldY = transform.position.y;
         while (Vector3.Distance(transform.localPosition, futurePos) > 0.01)
         {
             currentMovementTime += speed * Time.deltaTime;
             transform.localPosition = Vector3.Lerp(transform.position, futurePos, currentMovementTime * Time.deltaTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, futureTransform.transform.rotation, currentMovementTime * Time.deltaTime);
+
+            transform.position = new Vector3(transform.position.x, oldY + (Mathf.Sin(currentMovementTime / 13) / 6), transform.position.z);
 
             playSound = true;
             yield return null;
