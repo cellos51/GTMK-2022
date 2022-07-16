@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Fire
   - 3 Pip
+  - 6 Pip
+  - 5 Pip
   layers:
   - Default
   - TransparentFX
