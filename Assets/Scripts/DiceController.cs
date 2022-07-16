@@ -10,9 +10,13 @@ public class DiceController : MonoBehaviour
 
     GameObject futureTransform;
 
+    public GameObject brokenModel;
+
     public AudioSource sound;
 
     public bool gameOver = false;
+
+    private bool fall = false;
 
     private float velocityY = 0;
 
@@ -67,6 +71,7 @@ public class DiceController : MonoBehaviour
             if (!Physics.Raycast(transform.position, -Vector3.up * 10))
             {
                 gameOver = true;
+                fall = true;
             }
             else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward) * 10, out hit) && hit.transform.tag == "3 Pip") // 3 side
             {
@@ -93,12 +98,26 @@ public class DiceController : MonoBehaviour
             speed = 120;
         }
 
-        if (gameOver == true)
+        if (gameOver == true && fall == true)
         {
             StopAllCoroutines();
             velocityY += -0.1f * Time.deltaTime;
             transform.position = new Vector3(transform.position.x, transform.position.y + velocityY, transform.position.z);
         }
+        else if (gameOver == true)
+        {
+            StopAllCoroutines();
+
+            var newDie = Instantiate(brokenModel);
+            newDie.transform.position = transform.position;
+            newDie.transform.rotation = transform.rotation;
+
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        gameOver = true;
     }
 
     public IEnumerator moveObject()

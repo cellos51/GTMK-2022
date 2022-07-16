@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
 
     public GameObject screenTranistion;
 
-    public GameObject player;
+    private bool ourGameover = false;
 
     private bool once = true;
 
@@ -25,7 +25,12 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player.GetComponent<DiceController>().gameOver)
+        if (GameObject.Find("Player") != null)
+        {
+            ourGameover = GameObject.Find("Player").GetComponent<DiceController>().gameOver;
+        }
+
+        if (!ourGameover)
         {
             if (Vector3.Distance(screenTranistion.GetComponent<RectTransform>().anchoredPosition, new Vector3(0, -Screen.height - (Screen.height / 2), 0)) > 0.01)
             {
