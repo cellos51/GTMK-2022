@@ -37,34 +37,32 @@ public class DiceController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * 10, Color.green); // 2 side
         Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.forward) * 10, Color.green); // 1 side
 
-        
+        RaycastHit hit;
 
         if (Vector3.Distance(transform.localPosition, futurePos) == 0 && gameOver == false)
         {
             futurePos = transform.position;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) && !Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
             {
                 futurePos += new Vector3(0, 0, 1f);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.right, 90f);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && !Physics.Raycast(transform.position, -Vector3.forward, out hit, 1))
             {
                 futurePos += new Vector3(0, 0, -1f);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.right, -90f);
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, -Vector3.right, out hit, 1))
             {
                 futurePos += new Vector3(-1f, 0, 0);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.forward, 90f);
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && !Physics.Raycast(transform.position, Vector3.right, out hit, 1))
             {
                 futurePos += new Vector3(1f, 0, 0);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.forward, -90f);
             }
             StartCoroutine(moveObject());
-
-            RaycastHit hit;
 
             if (!Physics.Raycast(transform.position, -Vector3.up * 10))
             {
