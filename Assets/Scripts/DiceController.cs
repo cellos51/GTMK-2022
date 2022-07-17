@@ -168,7 +168,7 @@ public class DiceController : MonoBehaviour
         if (gameOver == true && fall == true)
         {
             StopAllCoroutines();
-            velocityY += -0.1f * Time.deltaTime;
+            velocityY += -0.05f * Time.deltaTime;
             transform.position = new Vector3(transform.position.x, transform.position.y + velocityY, transform.position.z);
         }
         else if (gameOver == true)
