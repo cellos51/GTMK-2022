@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOver : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameOver : MonoBehaviour
     public float transitionSpeed = 1;
 
     public GameObject screenTranistion;
+
+    public GameObject timer;
+
+    public float time = 90;
 
     private bool ourGameover = false;
 
@@ -25,6 +30,22 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+
+       
+
+        if ( (Mathf.FloorToInt(Mathf.Log10(Mathf.FloorToInt(time % 60))) + 1) < 2)
+        {
+            timer.GetComponent<TextMeshProUGUI>().SetText("Time: " + Mathf.FloorToInt(time / 60) + ":" + "0" +Mathf.FloorToInt(time % 60));
+        }
+        else
+        {
+            timer.GetComponent<TextMeshProUGUI>().SetText("Time: " + Mathf.FloorToInt(time / 60) + ":" + Mathf.FloorToInt(time % 60));
+        }
+
         if (GameObject.Find("Player") != null)
         {
             ourGameover = GameObject.Find("Player").GetComponent<DiceController>().gameOver;
@@ -43,6 +64,11 @@ public class GameOver : MonoBehaviour
             }
         }
         else
+        {
+            loadScene(scene.name);
+        }
+
+        if (time <= 0)
         {
             loadScene(scene.name);
         }
