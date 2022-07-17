@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DiceController : MonoBehaviour
 {
@@ -32,6 +34,14 @@ public class DiceController : MonoBehaviour
 
     private GameObject craneTile;
 
+    public GameObject MoveText;
+
+    private TextMeshProUGUI moveTextPro;
+
+    int moves = 0;
+
+    public 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +49,9 @@ public class DiceController : MonoBehaviour
 
         futureTransform = new GameObject();
         futureTransform.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+        moveTextPro = MoveText.GetComponent<TextMeshProUGUI>();
+        moveTextPro.SetText("Moves: " + moves);
     }
 
     // Update is called once per frame
@@ -66,24 +79,36 @@ public class DiceController : MonoBehaviour
                 futurePos += new Vector3(0, 0, 1f);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.right, 90f);
                 teleported = false;
+                moves += 1;
+                moveTextPro.SetText("Moves: " + moves);
+                
             }
             else if (Input.GetKey(KeyCode.DownArrow) && !Physics.Raycast(transform.position, -Vector3.forward, out hit, 1))
             {
                 futurePos += new Vector3(0, 0, -1f);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.right, -90f);
                 teleported = false;
+                moves += 1;
+                moveTextPro.SetText("Moves: " + moves);
+                
             }
             else if (Input.GetKey(KeyCode.LeftArrow) && !Physics.Raycast(transform.position, -Vector3.right, out hit, 1))
             {
                 futurePos += new Vector3(-1f, 0, 0);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.forward, 90f);
                 teleported = false;
+                moves += 1;
+                moveTextPro.SetText("Moves: " + moves);
+                
             }
             else if (Input.GetKey(KeyCode.RightArrow) && !Physics.Raycast(transform.position, Vector3.right, out hit, 1))
             {
                 futurePos += new Vector3(1f, 0, 0);
                 futureTransform.transform.RotateAround(GetComponent<Renderer>().bounds.center, Vector3.forward, -90f);
                 teleported = false;
+                moves += 1;
+                moveTextPro.SetText("Moves: " + moves);
+                
             }
             StartCoroutine(moveObject());
             StartCoroutine(rotate());
