@@ -106,7 +106,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
+  futurePos: {x: 0, y: 0, z: 0}
+  brokenModel: {fileID: 0}
   sound: {fileID: 1621133947184159112}
+  gameOver: 0
+  blueprintLength: 0
+  inCrane: 0
 --- !u!114 &7843899294288238508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +374,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 3f73d0b79ae88164093e8d6f30523ca2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7b0ec73e3519b8846bce7607cb82898d, type: 2}
+      objectReference: {fileID: 2100000, guid: b1276dd24cd8da248b04c5f39500e903, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f73d0b79ae88164093e8d6f30523ca2, type: 3}
       propertyPath: m_Name
       value: Dice
