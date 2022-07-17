@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: bf1bf92a3ce592e40b898be6c21cc2fa, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c55afdc4a8a3b4890b07cc7d176510bb, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.24600306, g: 0.30825734, b: 0.3645288, a: 1}
+  m_IndirectSpecularColor: {r: 0.13806835, g: 0.26288247, b: 0.3527535, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1098,6 +1098,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7843899294288238513, guid: f182ef4013921854bacaaa5574b2d308, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b1276dd24cd8da248b04c5f39500e903, type: 2}
     - target: {fileID: 7843899294288238515, guid: f182ef4013921854bacaaa5574b2d308, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1150,6 +1154,10 @@ PrefabInstance:
       propertyPath: brokenModel
       value: 
       objectReference: {fileID: 8461963191671610288, guid: 2094da9a487feff4e97fe17e2acf6a39, type: 3}
+    - target: {fileID: 8850480278286422905, guid: f182ef4013921854bacaaa5574b2d308, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b1276dd24cd8da248b04c5f39500e903, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f182ef4013921854bacaaa5574b2d308, type: 3}
 --- !u!4 &8568754787976660994
