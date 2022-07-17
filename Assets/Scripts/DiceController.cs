@@ -165,13 +165,13 @@ public class DiceController : MonoBehaviour
             blueprintLength = 0;
         }
 
-        if (gameOver == true && fall == true)
+        if (fall == true)
         {
             StopAllCoroutines();
             velocityY += -0.05f * Time.deltaTime;
             transform.position = new Vector3(transform.position.x, transform.position.y + velocityY, transform.position.z);
         }
-        else if (gameOver == true)
+        else if (gameOver == true && fall == false)
         {
             StopAllCoroutines();
 
@@ -180,12 +180,6 @@ public class DiceController : MonoBehaviour
             newDie.transform.rotation = transform.rotation;
 
             Destroy(gameObject);
-        }
-        else if (fall == true)
-        {
-            StopAllCoroutines();
-            velocityY += -0.1f * Time.deltaTime;
-            transform.position = new Vector3(transform.position.x, transform.position.y + (velocityY * Time.deltaTime), transform.position.z);
         }
     }
     private void OnTriggerEnter(Collider other)
