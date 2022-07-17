@@ -113,16 +113,16 @@ public class DiceController : MonoBehaviour
             StartCoroutine(moveObject());
             StartCoroutine(rotate());
 
-            if (!Physics.Raycast(transform.position, -Vector3.up * 10))
+            if (!Physics.Raycast(transform.position, -Vector3.up))
             {
                 gameOver = true;
                 fall = true;
             }
-            else if (Physics.Raycast(transform.position, -Vector3.up * 10, out hit) && hit.transform.tag == "Finish")
+            else if (Physics.Raycast(transform.position, -Vector3.up, out hit) && hit.transform.tag == "Finish")
             {
                 fall = true;
             }
-            else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward) * 10, out hit) && hit.transform.tag == "3 Pip") // 3 side
+            else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit) && hit.transform.tag == "3 Pip" && hit.distance < 0.5) // 3 side
             {
                 rotating = true;
                 if (Input.GetKeyDown(KeyCode.Alpha6))
@@ -150,19 +150,19 @@ public class DiceController : MonoBehaviour
                     futureTransform.transform.eulerAngles = new Vector3(0, 0, 90);
                 }
             }
-            else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up) * 10, out hit) && hit.transform.tag == "6 Pip") // 6 side
+            else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit) && hit.transform.tag == "6 Pip" && hit.distance < 1) // 6 side
             {
                 hit.transform.gameObject.GetComponent<Pip6>().SteppedOn();
             }
-            else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.right) * 10, out hit) && hit.transform.tag == "5 Pip") // 5 side
+            else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.right), out hit) && hit.transform.tag == "5 Pip" && hit.distance < 1) // 5 side
             {
                 speedBoostLength = 30;
             }
-            else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up) * 10, out hit) && hit.transform.tag == "4 Pip") // 4 side
+            else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit) && hit.transform.tag == "4 Pip" && hit.distance < 1) // 4 side
             {
                 blueprintLength = 30;
             }
-            else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward) * 10, out hit) && hit.transform.tag == "1 Pip") // 1 side
+            else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), out hit) && hit.transform.tag == "1 Pip" && hit.distance < 1) // 1 side
             {
                 inCrane = true;
                 craneTile = hit.transform.gameObject;
@@ -250,7 +250,7 @@ public class DiceController : MonoBehaviour
         transform.position = futurePos;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right) * 10, out hit) && hit.transform.tag == "2 Pip" && teleported == false) // 2 side
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right) * 10, out hit) && hit.transform.tag == "2 Pip" && teleported == false && hit.distance < 1) // 2 side
         {
             teleported = true;
          
