@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.67650044, g: 0.5506668, b: 0.58950895, a: 1}
+  m_IndirectSpecularColor: {r: 0.6777305, g: 0.5517836, b: 0.5905325, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -356,9 +356,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -2346428509227581198, guid: 934a3d21eb752724f9bfbf20d1627e2d, type: 3}
 --- !u!4 &101120547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4191230574981227480, guid: f9228e0943235ef41809372d57249234, type: 3}
@@ -1257,7 +1257,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -2346428509227581198, guid: c98a6bf6f7baa514fa4e8e4f24603254, type: 3}
 --- !u!4 &751776070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146341009271689746, guid: 5b2563966290f3340acadf29d055c6ee, type: 3}
@@ -1669,9 +1669,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -2346428509227581198, guid: 934a3d21eb752724f9bfbf20d1627e2d, type: 3}
 --- !u!1001 &1135986366
 PrefabInstance:
   m_ObjectHideFlags: 0
