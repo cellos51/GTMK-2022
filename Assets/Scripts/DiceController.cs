@@ -160,6 +160,7 @@ public class DiceController : MonoBehaviour
             }
             else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit) && hit.transform.tag == "4 Pip" && hit.distance < 1) // 4 side
             {
+                hit.transform.gameObject.GetComponent<Pip4Sound>().SteppedOn();
                 blueprintLength = 30;
             }
             else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), out hit) && hit.transform.tag == "1 Pip" && hit.distance < 1) // 1 side
