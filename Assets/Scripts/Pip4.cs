@@ -10,6 +10,9 @@ public class Pip4 : MonoBehaviour
 
     public Material opaque;
 
+    public AudioSource sound;
+    public int ripheadphoneusersconunter = 0;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +27,10 @@ public class Pip4 : MonoBehaviour
             {
                 gameObject.GetComponent<Renderer>().material = translucent;
                 gameObject.GetComponent<BoxCollider>().center = new Vector3(0, 10, 0);
+            }
+            if (ripheadphoneusersconunter == 0){
+            sound.Play();
+            ripheadphoneusersconunter++;
             }
         }
     }

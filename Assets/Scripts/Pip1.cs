@@ -16,6 +16,9 @@ public class Pip1 : MonoBehaviour
 
     bool bruh = true;
 
+    public AudioSource sound;
+    public int ripheadphoneusersconunter = 0;
+
     private void Start()
     {
         crane.transform.position = new Vector3(transform.position.x, liftHeight + 1, transform.position.z);
@@ -44,6 +47,10 @@ public class Pip1 : MonoBehaviour
                     player.GetComponent<DiceController>().futurePos = player.transform.position;
                     player.GetComponent<DiceController>().inCrane = false;
                 }
+            }
+            if (ripheadphoneusersconunter == 0){
+            sound.Play();
+            ripheadphoneusersconunter++;
             }
         }
     }
