@@ -23,9 +23,10 @@ public class Pip4Sound : MonoBehaviour
 
     public void SteppedOn()
     {
-        if (ripheadphoneusersconunter == 0){
+        if (ripheadphoneusersconunter == 0)
+        {
             sound.Play();
-            ripheadphoneusersconunter++;
+            ripheadphoneusersconunter = 1;
         }
-    }    
+    }
 }

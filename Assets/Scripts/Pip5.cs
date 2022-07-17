@@ -17,9 +17,15 @@ public class Pip5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ripheadphoneusersconunter == 0){
+
+    }
+    
+    public void SteppedOn()
+    {
+        if (ripheadphoneusersconunter == 0)
+        {
             sound.Play();
-            ripheadphoneusersconunter++;
+            ripheadphoneusersconunter = 1;
         }
     }
 }

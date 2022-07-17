@@ -124,6 +124,7 @@ public class DiceController : MonoBehaviour
             }
             else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit) && hit.transform.tag == "3 Pip" && hit.distance < 1) // 3 side
             {
+                hit.transform.gameObject.GetComponent<Pip3>().SteppedOn();
                 rotating = true;
                 if (Input.GetKeyDown(KeyCode.Alpha6))
                 {
@@ -156,6 +157,7 @@ public class DiceController : MonoBehaviour
             }
             else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.right), out hit) && hit.transform.tag == "5 Pip" && hit.distance < 1) // 5 side
             {
+                hit.transform.gameObject.GetComponent<Pip5>().SteppedOn();
                 speedBoostLength = 30;
             }
             else if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit) && hit.transform.tag == "4 Pip" && hit.distance < 1) // 4 side
@@ -253,6 +255,7 @@ public class DiceController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right) * 10, out hit) && hit.transform.tag == "2 Pip" && teleported == false && hit.distance < 1) // 2 side
         {
+            hit.transform.gameObject.GetComponent<Pip2>().SteppedOn();
             teleported = true;
          
             transform.position = new Vector3(hit.transform.gameObject.GetComponent<Pip2>().destination.transform.position.x, transform.position.y, hit.transform.gameObject.GetComponent<Pip2>().destination.transform.position.z);
