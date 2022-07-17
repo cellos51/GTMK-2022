@@ -6,6 +6,9 @@ public class Pip2 : MonoBehaviour
 {
     public GameObject destination;
 
+    public AudioSource sound;
+    public int ripheadphoneusersconunter = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +24,9 @@ public class Pip2 : MonoBehaviour
     public void Test()
     {
         print("stepped on!");
+        if (ripheadphoneusersconunter == 0){
+            sound.Play();
+            ripheadphoneusersconunter++;
+           }
     }    
 }
