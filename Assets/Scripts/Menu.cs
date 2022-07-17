@@ -19,10 +19,7 @@ public class Menu : MonoBehaviour
 
     void TaskOnClick()
     {
-        
-
         Destroy(MenuMusic);
         Instantiate(levelMusic);
-        SceneManager.LoadScene("Level1");
     }
 }
