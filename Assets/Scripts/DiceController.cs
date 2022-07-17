@@ -122,7 +122,7 @@ public class DiceController : MonoBehaviour
             {
                 fall = true;
             }
-            else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit) && hit.transform.tag == "3 Pip" && hit.distance < 0.5) // 3 side
+            else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit) && hit.transform.tag == "3 Pip" && hit.distance < 1) // 3 side
             {
                 rotating = true;
                 if (Input.GetKeyDown(KeyCode.Alpha6))
