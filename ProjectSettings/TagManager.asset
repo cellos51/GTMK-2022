@@ -7,6 +7,9 @@ TagManager:
   - 3 Pip
   - 6 Pip
   - 5 Pip
+  - 2 Pip
+  - 4 Pip
+  - 1 Pip
   layers:
   - Default
   - TransparentFX

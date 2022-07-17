@@ -17,8 +17,8 @@ public class MovingWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        position1 = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
-        position2 = new Vector3(destination.transform.position.x + 0.5f, destination.transform.position.y, destination.transform.position.z);
+        position1 = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z + 0.5f);
+        position2 = new Vector3(destination.transform.position.x + 0.5f, destination.transform.position.y, destination.transform.position.z + 0.5f);
         medium = position1;
     }
 

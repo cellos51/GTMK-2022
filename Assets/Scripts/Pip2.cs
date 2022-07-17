@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pip3 : MonoBehaviour
+public class Pip2 : MonoBehaviour
 {
+    public GameObject destination;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class Pip3 : MonoBehaviour
     void Update()
     {
         
-    }   
+    }
+
+    public void Test()
+    {
+        print("stepped on!");
+    }    
 }

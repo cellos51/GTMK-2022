@@ -44,24 +44,28 @@ public class GameOver : MonoBehaviour
         }
         else
         {
-            if (once == true)
-            {
-                screenTranistion.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, Screen.height * 2, 0);
-                once = false;
-                currentMovementTime = 0;
-                screenTranistion.GetComponent<RectTransform>().transform.localScale = new Vector3(1, 2, 1);
-            }
+            loadScene(scene.name);
+        }
+    }
+    public void loadScene(string sceneName)
+    {
+        if (once == true)
+        {
+            screenTranistion.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, Screen.height * 2, 0);
+            once = false;
+            currentMovementTime = 0;
+            screenTranistion.GetComponent<RectTransform>().transform.localScale = new Vector3(1, 2, 1);
+        }
 
-            if (Vector3.Distance(screenTranistion.GetComponent<RectTransform>().anchoredPosition, new Vector3(0, -(Screen.height / 2), 0)) > Screen.height / 2)
-            {
-                currentMovementTime += transitionSpeed * Time.deltaTime;
-                screenTranistion.GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp(screenTranistion.GetComponent<RectTransform>().anchoredPosition, new Vector3(0, -(Screen.height / 2), 0), (currentMovementTime * Time.deltaTime));
-            }
-            else
-            {
-                screenTranistion.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-                SceneManager.LoadScene(scene.name);
-            }
+        if (Vector3.Distance(screenTranistion.GetComponent<RectTransform>().anchoredPosition, new Vector3(0, -(Screen.height / 2), 0)) > Screen.height / 2)
+        {
+            currentMovementTime += transitionSpeed * Time.deltaTime;
+            screenTranistion.GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp(screenTranistion.GetComponent<RectTransform>().anchoredPosition, new Vector3(0, -(Screen.height / 2), 0), (currentMovementTime * Time.deltaTime));
+        }
+        else
+        {
+            screenTranistion.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
