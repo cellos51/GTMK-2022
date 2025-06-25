@@ -99,6 +99,7 @@ public class DiceController : MonoBehaviour
                 teleported = false;
                 moves += 1;
                 moveTextPro.SetText("Moves: " + moves);
+                Debug.Log("Hello! I'm a little pull goblin. I was put here by a lazy developer who's a friend of the repo owner. I only exist to give the lazy dev a github badge on their profile!");
                 
             }
             else if (Input.GetKey(KeyCode.RightArrow) && !Physics.Raycast(transform.position, Vector3.right, out hit, 1))
